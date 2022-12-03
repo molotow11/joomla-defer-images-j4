@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+	<name>System - Defer Images</name>
+	<author>Andrey Miasoedov</author>
+	<creationDate>Feb 2019</creationDate>
+	<copyright></copyright>
+	<authorEmail>molotow11@gmail.com</authorEmail>
+	<authorUrl>http://joomcar.net</authorUrl>
+	<version>1.0.1</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<files>
+		<filename plugin="DeferImages">DeferImages.php</filename>
+		<folder>includes</folder>
+		<filename>index.html</filename>
+	</files>
+	<updateservers>
+		<server name="DeferImages" type="collection">http://joomcar.net/jed_update/DeferImages/package.xml</server>
+	</updateservers>
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/DeferImages/includes/">
+			<fieldset name="basic">
+				<field type="header" default="Main parameters" />				
+                <field name="DeferType" type="radio" default="Lazy" label="Defer type" class="btn-group btn-group-yesno">
+					<option value="Lazy">LazyImages</option>
+                    <option value="OnLoad">OnLoad</option>
+                </field>
+				<field name="ImagesLoadDelay" type="text" default="200" label="Images Load Delay" />
+				<field name="exclude" type="text" default="skipDefer" label="Exclude id or class" description="Comma separated id or class for exclude images, or any text part or img tag (e.g. src part)" />
+				<field name="allowed_pages" type="text" default="" label="Enable only on pages" description="Allowed pages (any words in the url separated by | character), use \/$ for index , E.g. \/$|blog|products" />
+				<field name="LoadingImage" type="textarea" filter="raw" cols="10"
+					default="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEr0lEQVRoQ+1XT2gjVRj/3ps0SXfT3cpucUF0exB3IWKSzpupdAMaL0JBXDzoRVgX0cOeFBTPe1QR2YMH9WAFD+JB3EvAg0Qh9M/MvKS1Blosugi7LKiQmG2ZNJn3yRcyJdQomWnSrSW5zLzJ9+/3/b73vu8xOCY/dkxwwAjIUWNyxMiIkSFlYFRaQ0psaLMjRkKnbkiKI0b6SSwicinlBMnqul5njKl+9MLIDIyRcrmc9jwvJYT43A+kUqlEG43GaVrHYrFaMpnc9f9zHOd0vV5v5HI5N0zg+3UGAqRcLk96nvcrAEwCwA0hxBvkyHGcE5zzk/SulNoWQuzQ+/r6+oPNZvOM53meEOLnQTA1ECCdoKsA0M4+IuYMw/i+F5DOt2mS0zTNS6VSm0eGkQ6QBQC40gnqphDicq/Ssizr4Ugk0t43AFCdmZm5c1+BUI1TAEKIGj3L5fK053mrPiuapj2QTqf/6t7sHbmLPhvNZvMXIUST1oVCIULPXC7XCgMsVGnZtv04Y+y7jsMvXdf9IJvN/uY4zmUAWEDEVcMwnu4VUKlUOq9pWrxer9/JZrP1QqEQTyQS5xHxHMlvb2/LXC53LyiYsEAuMca+7nJWQ8QXDMP4KUgAhUIhEY/HU5qmtdmgH+d81Wc5iK1QQMiBbdtvM8be6gYjhHgsiHPbti8h4h6IaDS6lU6nbwex4cuGBtIBQ8wQmDlErBiG8UyQIJaXl3XOeQIRq5qm3QrDxECA+EaKxeIjtEeCgPBlaY8MoikGZmRxcfGhWCx2ARHbpw9jbKPRaGzOzc2FKgnqK67rTkYiEWqm0Gq1qvF4vOo3z36TExiIlPIzRDT2ObCFEFf7ddotZ1nWU4yxqe5viPi7aZo/BLE3ECCMMVvX9f8XECqtSCRykXN+gTKmlNpstVobByktzvnk7u5uu7Si0WhVKTX80upFt2VZ50zTvBukFLoOiglqjGF0u3UCl9a++k4zxq4wxtIAsCWEeC1IQFLKFxHxLCLe1jTNPsjcFRqIlPIVRPSHRDq97um6/lwQIKVS6VWlVMzXUUrZpmnaQWwcqI9YlpXmnH+4Z4Qxmo3e1HV9a21t7WQqldr+r2D83uE4zlnO+fPdYDjn34RhJhQjUspHEfHTTrDfKqUWaI+Uy2XD87xrjLFbuq5f7wXGcRxikQZEGvU3isXixPj4uOH3JQD4SgjxR1BWQgEhJ5VKJUHPZDLZnlRLpdKUUuo9AGjfCMfGxq66rhtnjL1Ma0T8YmdnZ/vUqVPvdNaupmkfZzIZupBBPp9vl9j8/HwjKAiSDw1kvzPHca4BQHt07/SV96WUTyilXqdvnPNPdF3/UUr5EgC0pwKadDOZzM0wge/XGSQQuiGeIAdKqeumaVZs256nJHec5g3DyC8tLU1Ho9H2IYGIrhDi3SMDhDZ4s9n8iIAwxvK6rhMoGvX/AYS+SymfBYAnGWNurVa7cV+Gxn/LHl11AWAqk8nsHZ+9SsvXp5MPAO6GbaRDK61eAFdWVs50b/bZ2dk/B1FGvWwMbI8MK8B+7Y6A9Jupw5IbMXJYme7Xz4iRfjN1WHIjRg4r0/36GTHSb6YOS+7YMPI38ygAUTFkTyAAAAAASUVORK5CYII=" 
+					label="Loading Image (base64 encoded)" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

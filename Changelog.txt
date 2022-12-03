@@ -1,0 +1,12 @@
+May 2020
+	* Small fix for exclude already base64 encoded images
+Feb 2020
+	* Added parameter "Enable only on pages"
+Sep 2019
+	* Added css background deferring (only inline coded)
+Apr 2019
+	* Added a parameter for store base64 decoded loading image
+	* Added a parameter for exclude images
+Mar 2019
+	* First version
+	* Log started
